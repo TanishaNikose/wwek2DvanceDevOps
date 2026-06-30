@@ -1,13 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Hello DevOps</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps CI/CD Pipeline</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(135deg,#1e3c72,#2a5298);
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            width:700px;
+            background:white;
+            border-radius:15px;
+            padding:40px;
+            text-align:center;
+            box-shadow:0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            color:#2c3e50;
+            margin-bottom:20px;
+        }
+
+        h2{
+            color:#27ae60;
+            margin-bottom:20px;
+        }
+
+        p{
+            color:#555;
+            font-size:18px;
+            margin:10px 0;
+        }
+
+        .status{
+            margin-top:25px;
+            background:#ecfdf5;
+            border-left:6px solid #22c55e;
+            padding:20px;
+            border-radius:8px;
+            text-align:left;
+        }
+
+        .status p{
+            margin:8px 0;
+            font-size:17px;
+        }
+
+        .footer{
+            margin-top:30px;
+            color:#888;
+            font-size:15px;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:25px;
+            background:#2563eb;
+            color:white;
+            text-decoration:none;
+            padding:12px 30px;
+            border-radius:8px;
+            transition:.3s;
+        }
+
+        .btn:hover{
+            background:#1d4ed8;
+        }
+    </style>
+
 </head>
+
 <body>
 
-<h1>Hello DevOps 🚀</h1>
+<div class="container">
 
-<p>My first GitHub project.</p>
+    <h1>🚀 DevOps CI/CD Pipeline</h1>
+
+    <h2>Deployment Successful ✅</h2>
+
+    <p>
+        This website was automatically deployed to an AWS EC2 instance
+        using <strong>GitHub Actions</strong>.
+    </p>
+
+    <div class="status">
+
+        <p>✅ Source Code : GitHub Repository</p>
+
+        <p>✅ CI Tool : GitHub Actions</p>
+
+        <p>✅ Cloud : AWS EC2</p>
+
+        <p>✅ Web Server : Nginx</p>
+
+        <p>✅ Deployment : Automated CI/CD Pipeline</p>
+
+    </div>
+
+    <a href="https://github.com/TanishaNikose" class="btn" target="_blank">
+        Visit My GitHub
+    </a>
+
+    <div class="footer">
+
+        <p>
+            Created by <strong>Tanisha Nikose</strong>
+        </p>
+
+        <p>
+            DevOps Learning Journey 🚀
+        </p>
+
+    </div>
+
+</div>
 
 </body>
 </html>
