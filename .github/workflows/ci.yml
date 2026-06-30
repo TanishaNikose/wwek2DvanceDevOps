@@ -27,6 +27,27 @@ jobs:
       - name: Verify AWS Identity
         run: aws sts get-caller-identity
 
+      # Copy index.html to EC2
+      - name: Copy Website to EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "index.html"
+          target: "/home/ubuntu/"
+
+      # Deploy website
+      - name: Deploy Website
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            sudo cp /home/ubuntu/index.html /var/www/html/index.html
+            sudo systemctl reload nginx
+
       # Display Message
       - name: Display Message
         run: echo "Hello DevOps! My first GitHub Actions workflow is running."
