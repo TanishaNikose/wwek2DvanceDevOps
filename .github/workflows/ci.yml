@@ -10,23 +10,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
-      - name: Display Secret
-        run: echo "Hello $NAME"
-        env: 
-         NAME: ${{ secrets.MY_NAME }}
 
+      # Checkout Repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Configure AWS Credentials
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      # Verify AWS Authentication
+      - name: Verify AWS Identity
+        run: aws sts get-caller-identity
+
+      # Display Message
       - name: Display Message
         run: echo "Hello DevOps! My first GitHub Actions workflow is running."
 
+      # Show Current Directory
       - name: Show Current Directory
         run: pwd
 
+      # List Repository Files
       - name: List Repository Files
         run: ls -la
 
+      # Show Date
       - name: Show Date
         run: date
